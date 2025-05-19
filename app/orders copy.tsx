@@ -7,21 +7,24 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
+import  products from '@/assets/data/products';
+
+const product = products[0];
+const defaultImage = 'https://saycheesekosher.com/wp-content/uploads/2023/11/italian.jpg';
 
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
       headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
+        <Image
+          source={{uri : product.image || defaultImage}}
           style={styles.headerImage}
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
+      <ThemedText type="title">{product.name}🍕</ThemedText>
+      <ThemedText type="subtitle">${product.price}</ThemedText>
       </ThemedView>
       <ThemedText>This app includes example code to help you get started.</ThemedText>
       <Collapsible title="File-based routing">
@@ -98,13 +101,13 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
+    height: 248,
+    width: '100%',
+    bottom: 0,
+    left: 0,
     position: 'absolute',
   },
   titleContainer: {
-    flexDirection: 'row',
     gap: 8,
   },
 });
