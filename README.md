@@ -1,50 +1,100 @@
-# Welcome to your Expo app 👋
+````markdown
+# React Native Product List App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple React Native application built with Expo and `expo-router` that displays a list of products and allows users to navigate to a detail page for each product.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Features
 
-   ```bash
-   npm install
-   ```
+- Product listing screen
+- Product detail screen
+- Navigation using `expo-router`
+- Pass data via URL query params
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 📦 Tech Stack
 
-In the output, you'll find options to open the app in a
+- React Native
+- Expo
+- expo-router
+- JavaScript
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📁 Project Structure
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+native-product-app/
+├── app/
+│   ├── index.tsx               # Home screen (product list)
+│   └── detail-order.tsx        # Product detail screen
+├── components/
+│   └── ProductList.tsx         # Card component for products
+├── assets/
+│   └── data/
+│       └── products.ts         # Sample product data
+├── layout.tsx                  # Navigation stack layout
+└── README.md
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 📦 Example Data (`assets/data/products.ts`)
 
-To learn more about developing your project with Expo, look at the following resources:
+```js
+export default [
+ {
+    id: 1,
+    name: 'Ultimate Pepperoni',
+    image:
+      'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/peperoni.png',
+    price: 12.99,
+  },
+  {
+    id: 2,
+    name: 'ExtravaganZZa',
+    image:
+      'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/extravaganzza.png',
+    price: 14.99,
+  },
+];
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+## 🧪 Run the App
 
-Join our community of developers creating universal apps.
+1. Install dependencies:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+yarn install
+# or
+npm install
+```
+
+2. Start the Expo project:
+
+```bash
+npm  start
+```
+
+3. Open it in your device or simulator.
+
+---
+
+## ❓FAQ
+
+**Q: How do I navigate to the detail page?**  
+A: Tap any product card. It will redirect using query string via `router.push`.
+
+**Q: Why use `JSON.stringify` and `JSON.parse`?**  
+A: Because URL parameters only support strings, so we convert objects to strings and back.
+
+---
+
+## 📃 License
+
+This project is licensed under the MIT License.
+````
+
