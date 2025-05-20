@@ -1,5 +1,6 @@
-import { View, Image, Text, StyleSheet } from 'react-native';
+import { View, Image, Text, StyleSheet,Pressable } from 'react-native';
 import Product from '../types';
+import {Link} from 'expo-router';
 
 type ProductListProps = {
   product: Product
@@ -7,14 +8,16 @@ type ProductListProps = {
 const defaultImage = 'https://saycheesekosher.com/wp-content/uploads/2023/11/italian.jpg';
 const ProductList = ({product}: ProductListProps) => {
     return(
-      <View style ={styles.container}>
-        <Image
-          source={{uri : product.image || defaultImage}}
-          style={styles.banner}
-        />
-        <Text style={styles.title}>{product.name }</Text>
-        <Text style={styles.price}>${product.price }</Text>
-      </View>
+      <Link href={`/menu/${product.id}`} asChild>
+        <Pressable onPress={() => console.log(product)} style ={styles.container}>
+          <Image
+            source={{uri : product.image || defaultImage}}
+            style={styles.banner}
+          />
+          <Text style={styles.title}>{product.name }</Text>
+          <Text style={styles.price}>${product.price }</Text>
+        </Pressable>
+      </Link>
     )
 }
 export default ProductList

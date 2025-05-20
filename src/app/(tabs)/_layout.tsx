@@ -7,7 +7,6 @@ import { IconSymbol } from '@components/ui/IconSymbol';
 import TabBarBackground from '@components/ui/TabBarBackground';
 import { Colors } from '@constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -21,14 +20,19 @@ export default function TabLayout() {
         tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
           ios: {
-            // Use a transparent background on iOS to show the blur effect
             position: 'absolute',
           },
           default: {},
         }),
       }}>
-      <Tabs.Screen
+        <Tabs.Screen
         name="index"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="menu"
         options={{
           title: 'Menu',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="menu.book" color={color} />,
@@ -37,7 +41,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="orders"
         options={{
-          title: 'Detail Order',
+          title: 'Order',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="receipt.long" color={color} />,
         }}
       />
