@@ -1,30 +1,30 @@
-import { ScrollView, StyleSheet, Pressable } from 'react-native';
+import { ScrollView,View, FlatList, StyleSheet, Pressable } from 'react-native';
 import products from '@assets/data/products';
 import ProductList from '@components/ProductList';
 import { useRouter } from 'expo-router';
+// import { View } from 'react-native-reanimated/lib/typescript/Animated';
 
 export default function HomeScreen() {
   const router = useRouter();
 
   const handlePress = (product) => {
     console.log('Product pressed:', product);
-    // Navigate to detail-order and pass product as JSON string
     router.push(`/detail-order?product=${encodeURIComponent(JSON.stringify(product))}`);
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {products.map((product) => (
-        <Pressable key={product.id} onPress={() => handlePress(product)}>
-          <ProductList product={product} />
-        </Pressable>
-      ))}
-    </ScrollView>
+      <FlatList
+      data={products}
+      renderItem={({ item }) => (
+        // <Pressable onPress={() => handlePress(item)}>
+          <ProductList product={item} />
+        // </Pressable>
+      )
+    }
+    numColumns={2}
+    contentContainerStyle={{gap: 10,padding:10}}
+    columnWrapperStyle={{gap: 10}}
+      />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-  },
-});

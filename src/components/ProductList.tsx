@@ -21,15 +21,16 @@ export default ProductList
 
 const styles = StyleSheet.create({
     container:{
-      padding: 16,
-      borderRadius: 8,
+      backgroundColor: "#121212",
+      padding: 10,
+      borderRadius: 20,
+      flex:1,
+      // margin:10
+      maxWidth: "50%"
     },
     banner: {
         width: '100%',
-        height: 200, // tinggi tetap
-        resizeMode: 'contain',
-        backgroundColor: '#f0f0f0', // untuk mengisi ruang kosong jika gambar terlalu kecil
-        borderRadius: 8,
+        aspectRatio:1,
       },
       
     title:{

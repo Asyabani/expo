@@ -8,9 +8,11 @@
     //   ]
     // }
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./*"],
       "@components/*": ["./src/components/*"],
-      "@assets/*": ["./assets/*"]
+      "@assets/*": ["./assets/*"],
+      "@constants/*": ["./src/constants/*"]
+      
     }
   },
   "include": [
