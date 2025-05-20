@@ -1,6 +1,6 @@
 import { ScrollView, StyleSheet, Pressable } from 'react-native';
-import products from '@/assets/data/products';
-import ProductList from '@/components/ProductList';
+import products from '@assets/data/products';
+import ProductList from '@components/ProductList';
 import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {

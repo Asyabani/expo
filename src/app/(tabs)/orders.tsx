@@ -1,13 +1,13 @@
 import { Image } from 'expo-image';
 import { Platform, StyleSheet } from 'react-native';
 
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import  products from '@/assets/data/products';
+import { Collapsible } from '@components/Collapsible';
+import { ExternalLink } from '@components/ExternalLink';
+import ParallaxScrollView from '@components/ParallaxScrollView';
+import { ThemedText } from '@components/ThemedText';
+import { ThemedView } from '@components/ThemedView';
+import { IconSymbol } from '@components/ui/IconSymbol';
+import  products from '@assets/data/products';
 
 const product = products[0];
 const defaultImage = 'https://saycheesekosher.com/wp-content/uploads/2023/11/italian.jpg';
@@ -56,7 +56,7 @@ export default function TabTwoScreen() {
           For mouthwatering Pepperoni Pizza images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
           <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide visuals for different screen densities.
         </ThemedText>
-        <Image source={require('@/assets/images/pizza.webp')} style={{ alignSelf: 'center' }} />
+        <Image source={require('@assets/images/pizza.webp')} style={{ alignSelf: 'center' }} />
         <ExternalLink href="https://pizza.dev/docs/images">
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>

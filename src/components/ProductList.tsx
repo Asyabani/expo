@@ -1,8 +1,11 @@
-// import { Image } from 'expo-image';
 import { View, Image, Text, StyleSheet } from 'react-native';
+import Product from '../types';
 
+type ProductListProps = {
+  product: Product
+}
 const defaultImage = 'https://saycheesekosher.com/wp-content/uploads/2023/11/italian.jpg';
-const ProductList = ({product}) => {
+const ProductList = ({product}: ProductListProps) => {
     return(
       <View style ={styles.container}>
         <Image
