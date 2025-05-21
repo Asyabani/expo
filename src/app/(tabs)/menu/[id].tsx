@@ -1,40 +1,86 @@
-import { View, Text ,StyleSheet } from 'react-native'
+import { View, Text ,StyleSheet,Image,Pressable } from 'react-native'
 import { Stack, useLocalSearchParams } from 'expo-router';
 import React from 'react'
+import products from '@assets/data/products';
+import { defaultImage } from '@components/ProductList';
+import { useState } from 'react';
+import Button from '@components/Button';
 
+const sizes = ['S', 'M', 'L', 'XL'];
 const productDetailScreen = () => {
   const { id } = useLocalSearchParams();
+  const [selectedSize, setSelectedSize] = useState(sizes[0]);
+  const product = products.find(product => product.id.toString() == id);
 
+  const addToCart = () => {
+    console.log('Added to cart',selectedSize);
+  }
+
+  if (!product) {
+    return (
+      <View style={styles.container}>
+        <Text>Product not found</Text>
+      </View>
+    );
+  }
   return (
-    <View>
-      <Stack.Screen options={{ title: 'Details' }}/>
-      <Text style={styles.title}>productDetailScreen {id}</Text>
+    <View style={styles.container}>
+      <Stack.Screen options={{ title: product?.name }}/>
+      <Image source={{uri : product?.image || defaultImage}} style={styles.image}/>
+
+      <Text style={styles.title}>Select Size</Text>
+      <View style={styles.sizes}>
+        {sizes.map(size => (
+          <Pressable onPress={() => setSelectedSize(size)} 
+          key={size} 
+          style={[styles.size, {backgroundColor: selectedSize === size ? '#121212' : 'black' }]}>
+            <Text style={[styles.sizeText, {color: selectedSize === size ? 'white' : 'gray' }]}>{size}</Text>
+          </Pressable>
+        ))}
+      </View>
+      <Text style={styles.price}>${product.price}</Text>
+      <Button onPress={addToCart} text="Add to Cart"/>
     </View>
   )
 }
 
-export default productDetailScreen
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
-    backgroundColor: '#fff',
+    padding: 10,
     flex: 1,
   },
   image: {
     width: '100%',
-    height: 200,
-    resizeMode: 'cover',
-    borderRadius: 8,
-    marginBottom: 16,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 8,
-    color: '#0a7ea4',
+    aspectRatio: 1,
   },
   price: {
     fontSize: 16,
-    color: '#888',
+    fontWeight: 'bold',
+    color: 'white',
+    marginTop: 'auto',
+  },
+  sizes: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 10,
+  },
+  size: {
+    backgroundColor: '#121212',
+    width: 50,
+    aspectRatio: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 25,
+  },
+  sizeText: {
+    fontSize: 20,
+    fontWeight: '500',
+    color: 'white',
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'white',
   },
 });
+export default productDetailScreen
