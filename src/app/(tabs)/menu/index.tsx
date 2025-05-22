@@ -2,7 +2,7 @@ import { ScrollView,View, FlatList, StyleSheet, Pressable } from 'react-native';
 import products from '@assets/data/products';
 import ProductList from '@components/ProductList';
 
-export default function HomeScreen() {
+export default function MenuScreen() {
 
   return (
       <FlatList

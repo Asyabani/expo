@@ -12,7 +12,7 @@ import  products from '@assets/data/products';
 const product = products[0];
 const defaultImage = 'https://saycheesekosher.com/wp-content/uploads/2023/11/italian.jpg';
 
-export default function TabTwoScreen() {
+export default function OrdersScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
