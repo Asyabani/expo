@@ -1,14 +1,16 @@
 import { View, Image, Text, StyleSheet,Pressable } from 'react-native';
 import Product from '../types';
-import {Link} from 'expo-router';
+import {Link, useSegments} from 'expo-router';
+import { use } from 'react';
 
 type ProductListProps = {
   product: Product
 }
 const defaultImage = 'https://saycheesekosher.com/wp-content/uploads/2023/11/italian.jpg';
 const ProductList = ({product}: ProductListProps) => {
+  const segments = useSegments(); 
     return(
-      <Link href={`/menu/${product.id}`} asChild>
+      <Link href={`/${segments[0]}/menu/${product.id}`} asChild>
         <Pressable onPress={() => console.log(product)} style ={styles.container}>
           <Image
             source={{uri : product.image || defaultImage}}

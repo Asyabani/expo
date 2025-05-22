@@ -22,7 +22,7 @@ export default function TabLayout() {
           ios: {
             position: 'absolute',
           },
-          default: {},
+          // default: {},
         }),
       }}>
         <Tabs.Screen
@@ -42,7 +42,7 @@ export default function TabLayout() {
         name="orders"
         options={{
           title: 'Order',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="receipt.long" color={color} />,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="menu.book" color={color} />,
         }}
       />
     </Tabs>
