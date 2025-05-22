@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native'
 import {createContext,PropsWithChildren,useContext} from 'react'
 import { CartItem,Product } from '../types';
 import { useState } from 'react';
@@ -39,9 +38,11 @@ const CartProvider = ({ children }: PropsWithChildren) => {
       item.id !== itemId ? item : {...item,quantity: item.quantity + amount}
     ).filter((item) => item.quantity > 0))
   }
+  // TOTAL
+  const total = items.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{items,addItem,updateQuantity}}>
+    <CartContext.Provider value={{items,addItem,updateQuantity,total}}>
       {children}
     </CartContext.Provider>
   )
