@@ -21,6 +21,7 @@ const MAPPING = {
   'menu.book': 'menu-book',
   'receipt.long': 'receipt-long',
   'shoppingcart': 'shopping-cart',
+  'pencil.square': 'pencil',
 } as IconMapping;
 
 /**

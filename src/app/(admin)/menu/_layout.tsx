@@ -12,7 +12,7 @@ export default function MenuStack() {
       <Link href="/cart" asChild>
       <Pressable>
         {({pressed}) => (
-           <IconSymbol size={28} name="shoppingcart" color={pressed ? 'white' : 'grey'} />
+           <IconSymbol size={28} name="pencilsquare" color={pressed ? 'white' : 'grey'} />
         )}
       </Pressable>
       </Link>

@@ -34,7 +34,6 @@ export default function TabLayout() {
       <Tabs.Screen
         name="menu"
         options={{
-          href: '/',
           title: 'Menu',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="menu.book" color={color} />,
         }}
