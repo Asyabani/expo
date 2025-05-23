@@ -1,100 +1,105 @@
-````markdown
-# React Native Product List App
+# 🍕 PizzaPOS - React Native App
 
-A simple React Native application built with Expo and `expo-router` that displays a list of products and allows users to navigate to a detail page for each product.
+**PizzaPOS** is a simple React Native application built with **Expo** and **expo-router**. It allows users to choose a role as **User** or **Admin**, view a list of pizza menus, add items to a cart, and manage orders — all using dummy data.
 
 ---
 
 ## 🚀 Features
 
-- Product listing screen
-- Product detail screen
-- Navigation using `expo-router`
-- Pass data via URL query params
+- Role selection: **User** or **Admin**
+- 📋 Pizza menu screen
+- 🛒 Cart screen
+- 🧭 Navigation using `expo-router`
+- Dummy data-based (no backend required)
 
 ---
 
-## 📦 Tech Stack
+## 🧰 Tech Stack
 
-- React Native
-- Expo
-- expo-router
-- JavaScript
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [expo-router](https://expo.github.io/router/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ---
 
 ## 📁 Project Structure
 
 ```
-native-product-app/
+native-test/
 ├── app/
-│   ├── index.tsx               # Home screen (product list)
-│   └── detail-order.tsx        # Product detail screen
+│   ├── (admin)/              # Admin pages
+│   ├── (user)/               # User pages
+│   ├── _layout.tsx           # Main layout for routing
+│   ├── index.tsx             # Role selection screen
+│   ├── cart.tsx              # Cart page
+│   └── +not-found.tsx        # Not found screen
 ├── components/
-│   └── ProductList.tsx         # Card component for products
-├── assets/
-│   └── data/
-│       └── products.ts         # Sample product data
-├── layout.tsx                  # Navigation stack layout
+│   └── ui/                   # UI components (Button, ListItem, etc.)
+├── constants/                # App constants and data
+├── hooks/                    # Custom hooks
+├── providers/                # Context providers
+├── assets/                   # Images and static files
+├── types.ts                  # Global types
 └── README.md
 ```
 
 ---
 
-## 📦 Example Data (`assets/data/products.ts`)
+## 🍕 Example Product Data
 
-```js
+The dummy data is located in `constants` or `assets/data`. Example:
+
+```ts
 export default [
- {
+  {
     id: 1,
     name: 'Ultimate Pepperoni',
-    image:
-      'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/peperoni.png',
-    price: 12.99,
+    image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/peperoni.png',
+    price: 50000,
   },
   {
     id: 2,
     name: 'ExtravaganZZa',
-    image:
-      'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/extravaganzza.png',
-    price: 14.99,
+    image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/extravaganzza.png',
+    price: 60000,
   },
 ];
 ```
 
+---
 
-## 🧪 Run the App
+## 🧪 Getting Started
 
 1. Install dependencies:
-
-```bash
-yarn install
-# or
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 2. Start the Expo project:
+   ```bash
+   npx expo start
+   ```
 
-```bash
-npm  start
-```
-
-3. Open it in your device or simulator.
+3. Open the app on your device using the Expo Go app or use an emulator.
 
 ---
 
-## ❓FAQ
+## ❓ FAQ
 
-**Q: How do I navigate to the detail page?**  
-A: Tap any product card. It will redirect using query string via `router.push`.
+**Q: How do I choose a role (User/Admin)?**  
+A: The app will ask you to choose your role on the home screen.
 
-**Q: Why use `JSON.stringify` and `JSON.parse`?**  
-A: Because URL parameters only support strings, so we convert objects to strings and back.
+**Q: Is the data saved?**  
+A: No, the app uses static dummy data for demonstration purposes.
+
+**Q: Can I add new menu items?**  
+A: Not yet — but this can be added through the `ProductList` component.
+
+---
 
 ---
 
 ## 📃 License
 
-This project is licensed under the MIT License.
-````
-
+MIT License
